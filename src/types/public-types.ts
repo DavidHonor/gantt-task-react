@@ -111,6 +111,11 @@ export interface StylingOption {
   milestoneBackgroundColor?: string;
   milestoneBackgroundSelectedColor?: string;
   arrowColor?: string;
+
+  // added
+  customArrowColor?: string;
+  customColorTaskIds?: Array<string | number>;
+
   arrowIndent?: number;
   todayColor?: string;
   TooltipContent?: React.FC<{

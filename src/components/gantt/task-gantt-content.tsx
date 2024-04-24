@@ -23,6 +23,11 @@ export type TaskGanttContentProps = {
   svgWidth: number;
   taskHeight: number;
   arrowColor: string;
+
+  //added
+  customArrowColor: string;
+  customColorTaskIds?: Array<string | number>;
+
   arrowIndent: number;
   fontSize: string;
   fontFamily: string;
@@ -43,6 +48,11 @@ export const TaskGanttContent: React.FC<TaskGanttContentProps> = ({
   svg,
   taskHeight,
   arrowColor,
+
+  //added
+  customArrowColor,
+  customColorTaskIds,
+
   arrowIndent,
   fontFamily,
   fontSize,
@@ -265,6 +275,14 @@ export const TaskGanttContent: React.FC<TaskGanttContentProps> = ({
       <g className="arrows" fill={arrowColor} stroke={arrowColor}>
         {tasks.map(task => {
           return task.barChildren.map(child => {
+            //added
+            const isCustomColorTask = customColorTaskIds?.includes(
+              task.id.toString()
+            );
+            const arrowColorComputed = isCustomColorTask
+              ? customArrowColor
+              : arrowColor;
+
             return (
               <Arrow
                 key={`Arrow from ${task.id} to ${tasks[child.index].id}`}
@@ -274,6 +292,9 @@ export const TaskGanttContent: React.FC<TaskGanttContentProps> = ({
                 taskHeight={taskHeight}
                 arrowIndent={arrowIndent}
                 rtl={rtl}
+                //added
+                fill={arrowColorComputed}
+                stroke={arrowColorComputed}
               />
             );
           });

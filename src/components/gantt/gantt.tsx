@@ -50,6 +50,11 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
   handleWidth = 8,
   timeStep = 300000,
   arrowColor = "grey",
+
+  //added
+  customArrowColor = "orange",
+  customColorTaskIds = [],
+
   fontFamily = "Arial, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue",
   fontSize = "14px",
   arrowIndent = 20,
@@ -415,6 +420,11 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     taskHeight,
     columnWidth,
     arrowColor,
+
+    //added
+    customArrowColor,
+    customColorTaskIds,
+
     timeStep,
     fontFamily,
     fontSize,

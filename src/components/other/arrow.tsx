@@ -8,6 +8,10 @@ type ArrowProps = {
   taskHeight: number;
   arrowIndent: number;
   rtl: boolean;
+
+  //added
+  fill: string;
+  stroke: string;
 };
 export const Arrow: React.FC<ArrowProps> = ({
   taskFrom,
