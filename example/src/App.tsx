@@ -87,6 +87,8 @@ const App = () => {
         onExpanderClick={handleExpanderClick}
         listCellWidth={isChecked ? "155px" : ""}
         columnWidth={columnWidth}
+        customArrowColor="orange"
+        customColorTaskIds={["Task 0", "Task 1", "Task 2"]}
       />
       <h3>Gantt With Limited Height</h3>
       <Gantt

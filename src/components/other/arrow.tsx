@@ -20,6 +20,10 @@ export const Arrow: React.FC<ArrowProps> = ({
   taskHeight,
   arrowIndent,
   rtl,
+
+  //added
+  fill,
+  stroke,
 }) => {
   let path: string;
   let trianglePoints: string;
@@ -43,8 +47,8 @@ export const Arrow: React.FC<ArrowProps> = ({
 
   return (
     <g className="arrow">
-      <path strokeWidth="1.5" d={path} fill="none" />
-      <polygon points={trianglePoints} />
+      <path strokeWidth="1.5" d={path} fill={"none"} stroke={stroke} />
+      <polygon points={trianglePoints} stroke={stroke} />
     </g>
   );
 };
