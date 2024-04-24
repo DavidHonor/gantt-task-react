@@ -26,7 +26,7 @@ export type TaskGanttContentProps = {
 
   //added
   customArrowColor: string;
-  customColorTaskIds?: Array<string | number>;
+  customColorTaskIds: Array<string | number>;
 
   arrowIndent: number;
   fontSize: string;
@@ -276,9 +276,10 @@ export const TaskGanttContent: React.FC<TaskGanttContentProps> = ({
         {tasks.map(task => {
           return task.barChildren.map(child => {
             //added
-            const isCustomColorTask = customColorTaskIds?.includes(
-              task.id.toString()
-            );
+            const isCustomColorTask =
+              customColorTaskIds.includes(task.id) &&
+              customColorTaskIds.includes(tasks[child.index].id);
+
             const arrowColorComputed = isCustomColorTask
               ? customArrowColor
               : arrowColor;
